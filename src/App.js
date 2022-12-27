@@ -1,35 +1,23 @@
 import { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Thing from "./example";
-
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      name: "ousf",
+      human1: { name: "ouss" },
+      human2: { name: "tiff" },
+      human3: { name: "idrissov" },
     };
   }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-
-          <p>{this.state.name} is this</p>
-
-          <button
-            onClick={() => {
-              this.setState({ name: "yay" });
-            }}
-          >
-            change name
-          </button>
-        </header>
-        <Thing />
+      <div className="app">
+        <h1>{this.state.human1.name}</h1>
+        <h1>{this.state.human2.name}</h1>
+        <h1>{this.state.human3.name}</h1>
       </div>
     );
   }
 }
-
 export default App;
