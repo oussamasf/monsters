@@ -1,12 +1,13 @@
 import { Component } from "react";
 import "./App.css";
+import CardList from "./components/card-list/card-list.component";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      humans: [],
-      searchFied: "",
+      ourUsers: [],
+      searchField: "",
     };
   }
   componentDidMount() {
@@ -14,17 +15,17 @@ class App extends Component {
       .then((response) => response.json())
       .then((users) => {
         this.setState(() => {
-          return { humans: users };
+          return { ourUsers: users };
         });
       });
   }
   onSearchChange = (event) =>
     this.setState(() => {
-      return { searchFied: event.target.value.toLowerCase() };
+      return { searchField: event.target.value.toLowerCase() };
     });
   render() {
-    const filteredList = this.state.humans.filter((human) => {
-      return human.name.toLowerCase().includes(this.state.searchFied);
+    const filteredList = this.state.ourUsers.filter((user) => {
+      return user.name.toLowerCase().includes(this.state.searchField);
     });
     return (
       <div
@@ -41,9 +42,7 @@ class App extends Component {
           placeholder="search..."
           onChange={this.onSearchChange}
         />
-        {filteredList.map((human) => {
-          return <h1 key={human.id}>{human.name}</h1>;
-        })}
+        <CardList users={filteredList} />
       </div>
     );
   }
