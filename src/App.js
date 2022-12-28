@@ -18,20 +18,28 @@ class App extends Component {
         });
       });
   }
+  onSearchChange = (event) =>
+    this.setState(() => {
+      return { searchFied: event.target.value.toLowerCase() };
+    });
   render() {
     const filteredList = this.state.humans.filter((human) => {
       return human.name.toLowerCase().includes(this.state.searchFied);
     });
     return (
-      <div className="app">
+      <div
+        className="app"
+        style={{
+          border:
+            filteredList.length === 0
+              ? "3px solid red"
+              : "3px solid greenyellow",
+        }}
+      >
         <input
           className="search-bar"
           placeholder="search..."
-          onChange={(event) =>
-            this.setState(() => {
-              return { searchFied: event.target.value.toLowerCase() };
-            })
-          }
+          onChange={this.onSearchChange}
         />
         {filteredList.map((human) => {
           return <h1 key={human.id}>{human.name}</h1>;
