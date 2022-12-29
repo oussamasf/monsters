@@ -1,6 +1,7 @@
 import { Component } from "react";
 import "./App.css";
 import CardList from "./components/card-list/card-list.component";
+import SearchBar from "./components/search-bar/search-bar.component";
 
 class App extends Component {
   constructor() {
@@ -37,10 +38,10 @@ class App extends Component {
               : "3px solid greenyellow",
         }}
       >
-        <input
+        <SearchBar
+          onChangeHandler={this.onSearchChange}
+          placeholder="search.."
           className="search-bar"
-          placeholder="search..."
-          onChange={this.onSearchChange}
         />
         <CardList users={filteredList} />
       </div>
