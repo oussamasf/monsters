@@ -1,0 +1,30 @@
+.card-container {
+  display: table;
+  background-color: #95dada;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 25px;
+  cursor: pointer;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+}
+.card-container  {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+.card-list {margin: 0 -5px;
+padding-top: 10px;}
+
+.card-list:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card-container:hover {
+  transform: scale(1.05);
+}

@@ -32,7 +32,7 @@ class App extends Component {
       <div
         className="app"
         style={{
-          border:
+          "border-top":
             filteredList.length === 0
               ? "3px solid red"
               : "3px solid greenyellow",
